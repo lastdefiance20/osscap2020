@@ -37,11 +37,11 @@ def run():
                print("1. Easy")
                print("2. Normal")
                print("3. Hard\n")
-               num_blocks = game_level()
+               wall_num = game_level()
                print("Start\n")
                game_board = bd.board_reset()
                bd.board_print(game_board)
-               game_board = bd.random_wall(num_blocks, game_board)
+               game_board = bd.random_wall(wall_num, game_board)
                bd.character_move(game_board)
                bd.board_print(game_board)
 
