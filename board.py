@@ -32,23 +32,56 @@ def board_print(board):
             elif x == 3: print("■", end = (""))
             elif x == 4: print("T", end = (""))
             else: print("▩", end = (""))
-        print("\n")
+        print()
 
-def random_wall(wall_num):
+def random_wall(wall_num, board):
     #랜덤으로 벽세우기를 구현하자
 
     #벽은 3칸으로 이루어져 있다. 그러면 각 벽이 세워질 수 있는 구간을 계산하자.
-    #19 + 13 * 5 - 외벽 6*6 = 48 총 48개의 벽을 세울 수 있다.
+    #30 세로벽
+    #30 가로벽
+
     #왼쪽 위부터 1으로 차례대로 순서를 매긴다.
     #난이도에 따른 벽 개수만큼 중복되지 않는 숫자를 뽑아 리스트로 만든다.
 
     #겹치지 않도록 set를 이용해 뽑음
-    random_wall_set = set([])
-    while (len(random_wall_set) < wall_num):
-        random_wall_set.add(random.randint(1, 48))
-    print(random_wall_set)
+    while True:
+        #뽑은 벽을 배치하고
+        random_wall_set = set([])
+        while (len(random_wall_set) < wall_num):
+            random_wall_set.add(random.randint(0, 59))
+        print(random_wall_set)
+
+        #세로벽 좌표
+        col_wall = []
+        for y in range(1,12,2):
+            for x in range(2,11,2):
+                col_wall.append([y, x])
+
+        #가로벽 좌표
+        row_wall = []
+        for y in range(2,11,2):
+            for x in range(1,12,2):
+                row_wall.append([y, x])
+
+
+
+        for z in random_wall_set:
+            if z<30:
+                #세로벽
+                y, x = col_wall[z]
+                board[y][x] = 3
+
+
+            else:
+                #가로벽
+                y, x = row_wall[z-30]
+                board[y][x] = 3
+
+        return board
 
     #뽑은 벽을 배치하고, 길이 막히는지 안막히는지 검사해야함. 길이 막히면 다시 뽑기
+    #미완성
 
 def random_start():
     #캐릭터의 시작을 구현하자. 캐릭터는 1로 표현한다.
@@ -66,7 +99,7 @@ def random_score_start():
     #점수 토큰은 4로 표시한다.
     pass
 
-def character_move(move_input):
+def character_move(board):
     #캐릭터의 움직임을 구현하자
 
     #move input에 위, 아래, 오른쪽, 왼쪽 정보를 받아온다
@@ -79,8 +112,3 @@ def character_move(move_input):
         벽이 없으면 그방면으로 움직이면 된다 (리스트에서 2칸 점프해야 한다)
     '''
     pass
-
-board = board_reset()
-board_print(board)
-#임의로 18개 넣어봄
-random_wall(18)
