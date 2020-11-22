@@ -7,7 +7,7 @@ def board_reset():
     #보드는 6*6 판이지만 실제로 보이지 않는 벽이 있기 때문에 세운다
 
     board = [[2,2,2,2,2,2,2,2,2,2,2,2,2],
-            [2,0,2,0,2,0,2,0,2,0,2,0,2],
+            [2,1,2,0,2,0,2,0,2,0,2,0,2],
             [2,2,2,2,2,2,2,2,2,2,2,2,2],
             [2,0,2,0,2,0,2,0,2,0,2,0,2],
             [2,2,2,2,2,2,2,2,2,2,2,2,2],
@@ -30,7 +30,7 @@ def board_print(board):
             elif x == 1: print("X", end = (""))
             elif x == 2: print("□", end = (""))
             elif x == 3: print("■", end = (""))
-            elif x == 4: print("T", end = (""))
+            elif x == 4: print("M", end = (""))
             else: print("▩", end = (""))
         print()
 
@@ -72,7 +72,6 @@ def random_wall(wall_num, board):
                 y, x = col_wall[z]
                 board[y][x] = 3
 
-
             else:
                 #가로벽
                 y, x = row_wall[z-30]
@@ -83,32 +82,109 @@ def random_wall(wall_num, board):
     #뽑은 벽을 배치하고, 길이 막히는지 안막히는지 검사해야함. 길이 막히면 다시 뽑기
     #미완성
 
-def random_start():
-    #캐릭터의 시작을 구현하자. 캐릭터는 1로 표현한다.
-
-    #캐릭터의 시작 지점을 랜덤으로 정한다.
-    #나중에 이 지점을 기억해서 벽에 닿으면 돌아올 수 있도록 저장해야 한다.
-    pass
-
 def random_score_start():
-    #점수 토큰의 시작을 구현하자. 점수 토큰은 4로 표현한다.
+    while True:
+        i = random.randrange(1,12,2)
+        j = random.randrange(1,13,2)
+        if board[i][j]==1: #캐릭터의 위치와 겹치면 안됨
+            continue
+        else:
+            board[i][j]=4
+            break 
 
-    #점수 토큰의 시작 지점을 랜덤으로 정한다.
-    #캐릭터의 시작 지점과 너무 가까워서는 안되고 겹쳐서도 안된다.
-    #나중에 점수 토큰을 먹으면 다시 시작 지점을 랜덤으로 정해서 또 생성해야한다.
-    #점수 토큰은 4로 표시한다.
-    pass
+def character_move():
+    a=1
+    b=1
+    while True:
+        board_print(board)
+        key = input("Enter a key from [a (left), d (right), w (up) s (down)] : ")
+        
+        if key == 'a': #좌로 이동 
+            board[a][b]= 0 
+            b -=1
+            if board[a][b]==2: #벽 유무 확인
+                b-=1
+                if board[a][b]==0:
+                    board[a][b]=1
+                elif board[a][b]==1:
+                    print("다른 플레이어와 같은 곳에 있을 수 없습니다.")
+                    b+=2
+                    board[a][b]=1
+                elif board[a][b]==4:
+                    print("매직 심볼을 획득하셨습니다. 축하드립니다.")
+                    board[a][b]=1
+                    random_score_start()
+            elif board[a][b]==3:
+                print( "갈 수 없습니다.")
+                a=1
+                b=1
+                board[a][b]=1
 
-def character_move(board):
-    #캐릭터의 움직임을 구현하자
+        elif key =='d': #우로 이동
+            board[a][b]= 0 
+            b +=1
+            if board[a][b]==2: #벽 유무 확인
+                b+=1
+                if board[a][b]==0:
+                    board[a][b]=1
+                elif board[a][b]==1:
+                    print("다른 플레이어와 같은 곳에 있을 수 없습니다.")
+                    b-=2
+                    board[a][b]=1
+                elif board[a][b]==4:
+                    print("매직 심볼을 획득하셨습니다. 축하드립니다.")
+                    board[a][b]=1
+                    random_score_start()
+            elif board[a][b]==3:
+                print( "갈 수 없습니다.")
+                a=1
+                b=1
+                board[a][b]=1
 
-    #move input에 위, 아래, 오른쪽, 왼쪽 정보를 받아온다
-    #코드는 위 아래 오른쪽 왼쪽 움직이는걸 짜되 이렇게 짜면 된다
-    '''
-    if move_input == 위:
-        character_pos에서 위로 한칸 이동한다음 벽이 2인지 0인지 계산한다
-        외벽이면 그냥 갈 수 없음이라고 출력하고
-        내벽이면 다시 시작지점으로 보내고 벽이 있었다라고 출력하고
-        벽이 없으면 그방면으로 움직이면 된다 (리스트에서 2칸 점프해야 한다)
-    '''
-    pass
+        elif key =='w': #위로 이동
+            board[a][b]= 0 
+            a -=1
+            if board[a][b]==2: #벽 유무 확인
+                a-=1
+                if board[a][b]==0:
+                    board[a][b]=1
+                elif board[a][b]==1:
+                    print("다른 플레이어와 같은 곳에 있을 수 없습니다.")
+                    a+=2
+                    board[a][b]=1
+                elif board[a][b]==4:
+                    print("매직 심볼을 획득하셨습니다. 축하드립니다.")
+                    board[a][b]=1
+                    random_score_start()
+            elif board[a][b]==3:
+                print( "갈 수 없습니다.")
+                a=1
+                b=1
+                board[a][b]=1
+
+        elif key =='s': #아래로 이동
+            board[a][b]= 0 
+            a +=1
+            if board[a][b]==2: #벽 유무 확인
+                a+=1
+                if board[a][b]==0:
+                    board[a][b]=1
+                elif board[a][b]==1:
+                    print("다른 플레이어와 같은 곳에 있을 수 없습니다.")
+                    a-=2
+                    board[a][b]=1
+                elif board[a][b]==4:
+                    print("매직 심볼을 획득하셨습니다. 축하드립니다.")
+                    board[a][b]=1
+                    random_score_start()
+            elif board[a][b]==3:
+                print( "갈 수 없습니다.")
+                a=1
+                b=1
+                board[a][b]=1
+
+board = board_reset()
+random_score_start()
+print("보이지 않는 벽이 세워졌습니다.")
+print("벽을 잘 피해 매직 심볼(M)을 획득하세요.")
+character_move()
