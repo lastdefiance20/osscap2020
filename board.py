@@ -114,7 +114,7 @@ def character_move(board):
                 elif board[a][b]==4:
                     print("매직 심볼을 획득하셨습니다. 축하드립니다.")
                     board[a][b]=1
-                    random_score_start()
+                    random_score_start(board)
             elif board[a][b]==3:
                 print( "갈 수 없습니다.")
                 a=1
@@ -135,7 +135,7 @@ def character_move(board):
                 elif board[a][b]==4:
                     print("매직 심볼을 획득하셨습니다. 축하드립니다.")
                     board[a][b]=1
-                    random_score_start()
+                    random_score_start(board)
             elif board[a][b]==3:
                 print( "갈 수 없습니다.")
                 a=1
@@ -156,7 +156,7 @@ def character_move(board):
                 elif board[a][b]==4:
                     print("매직 심볼을 획득하셨습니다. 축하드립니다.")
                     board[a][b]=1
-                    random_score_start()
+                    random_score_start(board)
             elif board[a][b]==3:
                 print( "갈 수 없습니다.")
                 a=1
@@ -177,7 +177,7 @@ def character_move(board):
                 elif board[a][b]==4:
                     print("매직 심볼을 획득하셨습니다. 축하드립니다.")
                     board[a][b]=1
-                    random_score_start()
+                    random_score_start(board)
             elif board[a][b]==3:
                 print( "갈 수 없습니다.")
                 a=1
