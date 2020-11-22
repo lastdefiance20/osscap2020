@@ -183,8 +183,3 @@ def character_move():
                 b=1
                 board[a][b]=1
 
-board = board_reset()
-random_score_start()
-print("보이지 않는 벽이 세워졌습니다.")
-print("벽을 잘 피해 매직 심볼(M)을 획득하세요.")
-character_move()
