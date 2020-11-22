@@ -1,3 +1,5 @@
+import board as bd
+
 def print_menu():
      print("<마법의 미로>\n\n")
 
@@ -37,6 +39,11 @@ def run():
                print("3. Hard\n")
                num_blocks = game_level()
                print("Start\n")
+               game_board = bd.board_reset()
+               bd.board_print(game_board)
+               game_board = bd.random_wall(num_blocks, game_board)
+               bd.character_move(game_board)
+               bd.board_print(game_board)
 
           elif menu ==2:
                print("<게임 방법>\n")
@@ -77,10 +84,6 @@ def run():
           else:
                print("Choose the right menu!\n")
                
-                              
-               
-               
 score ={'정은': [2,2],'재윤': [2,1],'강희':[0,1]}
 
 run()
-     
