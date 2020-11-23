@@ -16,11 +16,11 @@ def game_level():
      while 1:
           level = int(input("Choose the game level: "))
           if level == 1:
-               return 18
+               return 15
           elif level == 2:
-               return 21
+               return 18
           elif level == 3:
-               return 24
+               return 21
           else:
                print("Choose the right game level!\n")
      
@@ -40,9 +40,10 @@ def run():
                wall_num = game_level()
                print("Start\n")
                game_board = bd.board_reset()
-               bd.board_print(game_board)
                game_board = bd.random_wall(wall_num, game_board)
-               bd.character_move(game_board)
+               bd.random_score_start(game_board)
+               bd.character_move(game_board, 1, 6, Player1, Player2)
+               bd.character_move(game_board, 2, 6, Player1, Player2)
                bd.board_print(game_board)
 
           elif menu ==2:
