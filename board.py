@@ -140,8 +140,11 @@ def random_score_start(board):
         else:
             board[i][j]=4
             break 
-
-def character_move(board, player, dice_n, P1, P2):
+            
+def random_dice():
+    #다이스 1~6 및 출력 구현?
+            
+def character_move(board, player, dice_n, P1, P2, symbol): #symbol에 매직 심볼 개수 플레이어수만큼 리스트, 개수 세고 승리조건 만들기
     a=1
     b=1
     for i in range(dice_n):
