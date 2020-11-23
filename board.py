@@ -154,8 +154,12 @@ def random_dice():
             
 def character_move(board, player, dice_n, P1, P2, symbol):
     #symbol에 매직 심볼 개수 플레이어수만큼 리스트, 개수 세고 승리조건 만들기
-    a=1
-    b=1
+    for x in range(13):
+        for y in range(13):
+            if board[x][y]==1:
+                a=x
+                b=y
+
     for i in range(dice_n):
         while True:
             #적절한 break문으로 dice 소모 조건 계산
