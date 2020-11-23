@@ -144,17 +144,20 @@ def random_score_start(board):
 def random_dice():
     #다이스 1~6 및 출력 구현?
             
-def character_move(board, player, dice_n, P1, P2, symbol): #symbol에 매직 심볼 개수 플레이어수만큼 리스트, 개수 세고 승리조건 만들기
+def character_move(board, player, dice_n, P1, P2, symbol):
+    #symbol에 매직 심볼 개수 플레이어수만큼 리스트, 개수 세고 승리조건 만들기
     a=1
     b=1
     for i in range(dice_n):
         while True:
             #적절한 break문으로 dice 소모 조건 계산
             board_print(board)
+            
+            #일단 1인부터 구현
             if player == 1:
-                print("P1 %s" %P1)
-            else:
-                print("P2 %s" %P2)
+                print("P1 %s, has symbol %d" %(P1,symbol[0]))
+            #else:
+                #print("P2 %s, has symbol %d" %(P2,symbol[0]))
             key = input("Enter a key from [a (left), d (right), w (up) s (down)] : ")
             
             if key == 'a': #좌로 이동 
@@ -173,6 +176,10 @@ def character_move(board, player, dice_n, P1, P2, symbol): #symbol에 매직 심
                         print("매직 심볼을 획득하셨습니다. 축하드립니다.")
                         board[a][b]=1
                         random_score_start(board)
+                        if player == 1:
+                            symbol[0] += 1
+                        else:
+                            symbol[1] += 1
                         break
                 elif board[a][b]==3:
                     print( "갈 수 없습니다.")
@@ -202,6 +209,10 @@ def character_move(board, player, dice_n, P1, P2, symbol): #symbol에 매직 심
                         print("매직 심볼을 획득하셨습니다. 축하드립니다.")
                         board[a][b]=1
                         random_score_start(board)
+                        if player == 1:
+                            symbol[0] += 1
+                        else:
+                            symbol[1] += 1
                         break
                 elif board[a][b]==3:
                     print( "갈 수 없습니다.")
@@ -230,6 +241,10 @@ def character_move(board, player, dice_n, P1, P2, symbol): #symbol에 매직 심
                         print("매직 심볼을 획득하셨습니다. 축하드립니다.")
                         board[a][b]=1
                         random_score_start(board)
+                        if player == 1:
+                            symbol[0] += 1
+                        else:
+                            symbol[1] += 1
                         break
                 elif board[a][b]==3:
                     print( "갈 수 없습니다.")
@@ -258,6 +273,10 @@ def character_move(board, player, dice_n, P1, P2, symbol): #symbol에 매직 심
                         print("매직 심볼을 획득하셨습니다. 축하드립니다.")
                         board[a][b]=1
                         random_score_start(board)
+                        if player == 1:
+                            symbol[0] += 1
+                        else:
+                            symbol[1] += 1
                         break
                 elif board[a][b]==3:
                     print( "갈 수 없습니다.")
@@ -269,3 +288,6 @@ def character_move(board, player, dice_n, P1, P2, symbol): #symbol에 매직 심
                     print("갈 수 없습니다.")
                     a -=1
                     board[a][b]=1
+        if 5 in symbol:
+            return symbol
+    return symbol
