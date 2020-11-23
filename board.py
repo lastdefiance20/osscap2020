@@ -142,7 +142,15 @@ def random_score_start(board):
             break 
             
 def random_dice():
-    #다이스 1~6 및 출력 구현?
+    while True:
+     a= input("주사위를 굴리시오(enter를 입력하시오)")
+     if a=="":
+          dice_n = random.randrange(1,5)
+          return dice_n
+          
+     else:
+          print("다시 굴리시오.")
+
             
 def character_move(board, player, dice_n, P1, P2, symbol):
     #symbol에 매직 심볼 개수 플레이어수만큼 리스트, 개수 세고 승리조건 만들기
