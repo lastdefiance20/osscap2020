@@ -39,12 +39,26 @@ def run():
                print("3. Hard\n")
                wall_num = game_level()
                print("Start\n")
+               symbol = [0, 0]
                game_board = bd.board_reset()
                game_board = bd.random_wall(wall_num, game_board)
                bd.random_score_start(game_board)
-               bd.character_move(game_board, 1, 6, Player1, Player2)
-               bd.character_move(game_board, 2, 6, Player1, Player2)
-               bd.board_print(game_board)
+               
+               while True:
+                    #dice_n = bd.random_dice()
+                    dice_n = 100
+                    symbol = bd.character_move(game_board, 1, dice_n, Player1, Player2, symbol)
+                    if 5 in symbol:
+                         break
+               
+               # 2인은 아직
+               # bd.character_move(game_board, 2, 6, Player1, Player2, symbol)
+
+               if symbol[0] == 5:
+                    print("P1 %s win" %Player1)
+               elif symbol[1] == 5:
+                    print("p2 %s win" %Player2)
+               # 승리한 사람에 따라서 리더보드 딕셔너리에 이름이 있는지, 있으면 그 자리에 승/패 추가 없으면 새로운 이름 딕셔너리에 추가하고 승/패 추가
 
           elif menu ==2:
                print("<게임 방법>\n")
