@@ -132,6 +132,8 @@ def random_wall(wall_num, board):
             board = copy.deepcopy(clear_board)
 
 def random_score_start(board):
+    #플레이어 1, 2 시작지점도 배제하는거 추가하기
+    
     while True:
         i = random.randrange(1,12,2)
         j = random.randrange(1,13,2)
@@ -167,9 +169,9 @@ def character_move(board, player, dice_n, P1, P2, symbol):
             
             #일단 1인부터 구현
             if player == 1:
-                print("P1 %s, has symbol %d" %(P1,symbol[0]))
+                print("P1 %s, has move left %d, has symbol %d" %(P1, dice_n-i, symbol[0]))
             #else:
-                #print("P2 %s, has symbol %d" %(P2,symbol[0]))
+                #print("P2 %s, has move left %d, has symbol %d" %(P2, dice_n-i, symbol[1]))
             key = input("Enter a key from [a (left), d (right), w (up) s (down)] : ")
             
             if key == 'a': #좌로 이동 
