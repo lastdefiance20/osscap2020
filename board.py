@@ -139,6 +139,8 @@ def random_score_start(board):
         j = random.randrange(1,13,2)
         if board[i][j]==1: #캐릭터의 위치와 겹치면 안됨
             continue
+        elif (i==1 and j==1) or (i==11 and j==11): # 플레이어 1,2 시작지점 배제 
+            continue
         else:
             board[i][j]=4
             break 
