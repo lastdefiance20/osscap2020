@@ -45,20 +45,21 @@ def run():
                bd.random_score_start(game_board)
                
                while True:
-                    #dice_n = bd.random_dice()
-                    dice_n = 100
+                    dice_n = bd.random_dice()
                     symbol = bd.character_move(game_board, 1, dice_n, Player1, Player2, symbol)
+                    bd.board_print(game_board)
                     if 5 in symbol:
                          break
-               
-               # 2인은 아직
-               # bd.character_move(game_board, 2, 6, Player1, Player2, symbol)
+                    dice_n = bd.random_dice()
+                    symbol = bd.character_move(game_board, 2, dice_n, Player1, Player2, symbol)
+                    bd.board_print(game_board)
+                    if 5 in symbol:
+                         break
 
                if symbol[0] == 5:
                     print("P1 %s win" %Player1)
                elif symbol[1] == 5:
                     print("p2 %s win" %Player2)
-               # 승리한 사람에 따라서 리더보드 딕셔너리에 이름이 있는지, 있으면 그 자리에 승/패 추가 없으면 새로운 이름 딕셔너리에 추가하고 승/패 추가
 
           elif menu ==2:
                print("<게임 방법>\n")
