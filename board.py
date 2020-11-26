@@ -20,7 +20,7 @@ def board_reset():
             [9,2,2,2,2,2,2,2,2,2,2,2,9],
             [9,0,2,0,2,0,2,0,2,0,2,0,9],
             [9,2,2,2,2,2,2,2,2,2,2,2,9],
-            [9,0,2,0,2,0,2,0,2,0,2,0,9],
+            [9,0,2,0,2,0,2,0,2,0,2,5,9],
             [9,9,9,9,9,9,9,9,9,9,9,9,9]]
     return board
 
@@ -34,6 +34,7 @@ def board_print(board):
             elif x == 2: print("□", end = (""))
             elif x == 3: print("■", end = (""))
             elif x == 4: print("M", end = (""))
+            elif x == 5: print("Z", end = (""))
             elif x == 9: print("■", end = (""))
             else: print("▩", end = (""))
         print()
@@ -132,65 +133,70 @@ def random_wall(wall_num, board):
             board = copy.deepcopy(clear_board)
 
 def random_score_start(board):
-    #플레이어 1, 2 시작지점도 배제하는거 추가하기
-    
     while True:
         i = random.randrange(1,12,2)
         j = random.randrange(1,13,2)
-        if board[i][j]==1: #캐릭터의 위치와 겹치면 안됨
+        if board[i][j]==1 or board[i][j]==5: #캐릭터의 위치와 겹치면 안됨
             continue
         elif (i==1 and j==1) or (i==11 and j==11): # 플레이어 1,2 시작지점 배제 
             continue
         else:
             board[i][j]=4
             break 
-            
+
 def random_dice():
     while True:
-     a= input("주사위를 굴리시오(enter를 입력하시오)")
-     if a=="":
-          dice_n = random.randrange(1,5)
-          return dice_n
+        a= input("주사위를 굴리시오(enter를 입력하시오)")
+        if a=="":
+            dice_n = random.randrange(1,5)
+            return dice_n
           
-     else:
-          print("다시 굴리시오.")
+        else:
+            print("다시 굴리시오.")
 
-            
 def character_move(board, player, dice_n, P1, P2, symbol):
     #symbol에 매직 심볼 개수 플레이어수만큼 리스트, 개수 세고 승리조건 만들기
-    for x in range(13):
-        for y in range(13):
-            if board[x][y]==1:
-                a=x
-                b=y
+    if player == 1:
+        for x in range(13):
+            for y in range(13):
+                if board[x][y]==1:
+                    a=x
+                    b=y
+    else:
+        for x in range(13):
+            for y in range(13):
+                if board[x][y]==5:
+                    a=x
+                    b=y
 
     for i in range(dice_n):
         while True:
             #적절한 break문으로 dice 소모 조건 계산
             board_print(board)
-            
-            #일단 1인부터 구현
             if player == 1:
                 print("P1 %s, has move left %d, has symbol %d" %(P1, dice_n-i, symbol[0]))
-            #else:
-                #print("P2 %s, has move left %d, has symbol %d" %(P2, dice_n-i, symbol[1]))
+                player_number = 1
+            else:
+                print("P2 %s, has move left %d, has symbol %d" %(P1, dice_n-i, symbol[1]))
+                player_number = 5
+
             key = input("Enter a key from [a (left), d (right), w (up) s (down)] : ")
-            
+
             if key == 'a': #좌로 이동 
                 board[a][b]= 0 
                 b -=1
                 if board[a][b]==2: #벽 유무 확인
                     b-=1
                     if board[a][b]==0:
-                        board[a][b]=1
+                        board[a][b]=player_number
                         break
-                    elif board[a][b]==1:
+                    elif board[a][b]==1 or board[a][b]==5:
                         print("다른 플레이어와 같은 곳에 있을 수 없습니다.")
                         b+=2
-                        board[a][b]=1
+                        board[a][b]=player_number
                     elif board[a][b]==4:
                         print("매직 심볼을 획득하셨습니다. 축하드립니다.")
-                        board[a][b]=1
+                        board[a][b]=player_number
                         random_score_start(board)
                         if player == 1:
                             symbol[0] += 1
@@ -199,14 +205,20 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         break
                 elif board[a][b]==3:
                     print( "갈 수 없습니다.")
-                    a=1
-                    b=1
-                    board[a][b]=1
-                    break
+                    if player == 1:
+                        a=1
+                        b=1
+                        board[a][b]=1
+                        break
+                    else:
+                        a=11
+                        b=11
+                        board[a][b]=5
+                        break
                 else:
                     print("갈 수 없습니다.")
                     b +=1
-                    board[a][b]=1
+                    board[a][b]=player_number
                     
 
             elif key =='d': #우로 이동
@@ -215,15 +227,15 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                 if board[a][b]==2: #벽 유무 확인
                     b+=1
                     if board[a][b]==0:
-                        board[a][b]=1
+                        board[a][b]=player_number
                         break
-                    elif board[a][b]==1:
+                    elif board[a][b]==1 or board[a][b]==5:
                         print("다른 플레이어와 같은 곳에 있을 수 없습니다.")
                         b-=2
-                        board[a][b]=1
+                        board[a][b]=player_number
                     elif board[a][b]==4:
                         print("매직 심볼을 획득하셨습니다. 축하드립니다.")
-                        board[a][b]=1
+                        board[a][b]=player_number
                         random_score_start(board)
                         if player == 1:
                             symbol[0] += 1
@@ -232,14 +244,20 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         break
                 elif board[a][b]==3:
                     print( "갈 수 없습니다.")
-                    a=1
-                    b=1
-                    board[a][b]=1
-                    break
+                    if player == 1:
+                        a=1
+                        b=1
+                        board[a][b]=1
+                        break
+                    else:
+                        a=11
+                        b=11
+                        board[a][b]=5
+                        break
                 else:
                     print("갈 수 없습니다.")
                     b -=1
-                    board[a][b]=1
+                    board[a][b]=player_number
 
             elif key =='w': #위로 이동
                 board[a][b]= 0 
@@ -247,15 +265,15 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                 if board[a][b]==2: #벽 유무 확인
                     a-=1
                     if board[a][b]==0:
-                        board[a][b]=1
+                        board[a][b]=player_number
                         break
-                    elif board[a][b]==1:
+                    elif board[a][b]==1 or board[a][b]==5:
                         print("다른 플레이어와 같은 곳에 있을 수 없습니다.")
                         a+=2
-                        board[a][b]=1
+                        board[a][b]=player_number
                     elif board[a][b]==4:
                         print("매직 심볼을 획득하셨습니다. 축하드립니다.")
-                        board[a][b]=1
+                        board[a][b]=player_number
                         random_score_start(board)
                         if player == 1:
                             symbol[0] += 1
@@ -264,14 +282,20 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         break
                 elif board[a][b]==3:
                     print( "갈 수 없습니다.")
-                    a=1
-                    b=1
-                    board[a][b]=1
-                    break
+                    if player == 1:
+                        a=1
+                        b=1
+                        board[a][b]=1
+                        break
+                    else:
+                        a=11
+                        b=11
+                        board[a][b]=5
+                        break
                 else:
                     print("갈 수 없습니다.")
                     a +=1
-                    board[a][b]=1
+                    board[a][b]=player_number
 
             elif key =='s': #아래로 이동
                 board[a][b]= 0 
@@ -279,15 +303,15 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                 if board[a][b]==2: #벽 유무 확인
                     a+=1
                     if board[a][b]==0:
-                        board[a][b]=1
+                        board[a][b]=player_number
                         break
-                    elif board[a][b]==1:
+                    elif board[a][b]==1 or board[a][b]==5:
                         print("다른 플레이어와 같은 곳에 있을 수 없습니다.")
                         a-=2
-                        board[a][b]=1
+                        board[a][b]=player_number
                     elif board[a][b]==4:
                         print("매직 심볼을 획득하셨습니다. 축하드립니다.")
-                        board[a][b]=1
+                        board[a][b]=player_number
                         random_score_start(board)
                         if player == 1:
                             symbol[0] += 1
@@ -296,14 +320,20 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         break
                 elif board[a][b]==3:
                     print( "갈 수 없습니다.")
-                    a=1
-                    b=1
-                    board[a][b]=1
-                    break
+                    if player == 1:
+                        a=1
+                        b=1
+                        board[a][b]=1
+                        break
+                    else:
+                        a=11
+                        b=11
+                        board[a][b]=5
+                        break
                 else:
                     print("갈 수 없습니다.")
                     a -=1
-                    board[a][b]=1
+                    board[a][b]=player_number
         if 5 in symbol:
             return symbol
     return symbol
