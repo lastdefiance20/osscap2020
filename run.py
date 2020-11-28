@@ -55,12 +55,48 @@ def run():
                     bd.board_print(game_board)
                     if 5 in symbol:
                          break
+                         
+               f=open("score.txt",encoding="utf-8")
+               words =f.read().splitlines()
+               f.close
 
+               score= {}
+               for i in range(int(len(words)/3)):
+                    score[words[i*3]] = [words[i*3+1], words[i*3+2]]
+                   
                if symbol[0] == 5:
                     print("P1 %s win" %Player1)
+                    if Player1 in score:
+                         score[Player1][0]= str(int(score[Player1][0])+1)
+                    else:
+                         score.update( {Player1: ['1','0']})
+                    if Player2 in score:
+                         score[Player2][1]= str(int(score[Player2][1])+1)
+                    else:
+                         score.update({Player2: ['0','1']})
+                         
                elif symbol[1] == 5:
-                    print("p2 %s win" %Player2)
+                    print("P2 %s win" %Player2)
+                    if Player2 in score:
+                         score[Player2][0]= str(int(score[Player2][0])+1)
+                    else:
+                         score.update({Player2: ['1','0']})
+                    if Player1 in score:
+                         score[Player1][1]= str(int(score[Player1][1])+1)
+                    else:
+                         score.update({Player1: ['0','1']})
 
+               #score.txt갱신하기
+               score_list_update= []
+               fg = open("score.txt",mode="w+t",encoding="utf-8")
+               for i in score.items():
+                    score_list_update.append(i[0])
+                    score_list_update.append(i[1][0])
+                    score_list_update.append(i[1][1])
+                
+               fg.write("\n".join(score_list_update))
+               fg.close()
+               
           elif menu ==2:
                print("<게임 방법>\n")
                print("가장 최근에 길을 잃어버린 적이 있는 사람이 먼저 시작합니다.")
@@ -99,7 +135,5 @@ def run():
 
           else:
                print("Choose the right menu!\n")
-               
-score ={'정은': [2,2],'재윤': [2,1],'강희':[0,1]}
 
 run()
