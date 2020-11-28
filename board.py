@@ -44,7 +44,7 @@ def board_print(board):
     for x in range(13):
          for y in range(13):
             color = board[y][x]
-            if (color != 2 and color != 3)
+            if (color != 2 and color != 3):
                 if color == 1:
                     LMD.set_pixel(x+1, y+1, 3)
                 else:
