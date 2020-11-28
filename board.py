@@ -182,6 +182,11 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                     b=y
 
     for i in range(dice_n):
+        if crash = True:
+            print("cracked wall~")
+            crash = False
+            break
+        crash = False
         while True:
             #적절한 break문으로 dice 소모 조건 계산
             board_print(board)
@@ -221,11 +226,13 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         a=1
                         b=1
                         board[a][b]=1
+                        crash = True
                         break
                     else:
                         a=11
                         b=11
                         board[a][b]=5
+                        crash = True
                         break
                 else:
                     print("갈 수 없습니다.")
@@ -260,11 +267,13 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         a=1
                         b=1
                         board[a][b]=1
+                        crash = True
                         break
                     else:
                         a=11
                         b=11
                         board[a][b]=5
+                        crash = True
                         break
                 else:
                     print("갈 수 없습니다.")
@@ -298,11 +307,13 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         a=1
                         b=1
                         board[a][b]=1
+                        crash = True
                         break
                     else:
                         a=11
                         b=11
                         board[a][b]=5
+                        crash = True
                         break
                 else:
                     print("갈 수 없습니다.")
@@ -336,11 +347,13 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         a=1
                         b=1
                         board[a][b]=1
+                        crash = True
                         break
                     else:
                         a=11
                         b=11
                         board[a][b]=5
+                        crash = True
                         break
                 else:
                     print("갈 수 없습니다.")
