@@ -2,6 +2,7 @@ import board as bd
 import LED_display as LMD
 import threading
 import dot as dt
+import time
 
 #화면세팅?
 def LED_init():
@@ -85,7 +86,24 @@ def menu_display(num):
                 if color == 1:
                     LMD.set_pixel(x, y+5, 4)
                     
-
+def see_screen():
+    LMD.clear_pixel()
+    
+    a, b = dt.see_screen()
+    
+    for x in range(11):
+        for y in range(5):
+            color = a[y][x]
+            if color == 1:
+                    LMD.set_pixel(x+3, y+2, 4)
+    
+    for x in range(25):
+        for y in range(5):
+            color = b[y][x]
+            if color == 1:
+                    LMD.set_pixel(x+3, y+9, 4)
+    LMD.refresh()
+    
 def run():
      LED_init()
      menu_num = 1
@@ -164,6 +182,7 @@ def run():
                fg.close()
                
           elif menu ==2:
+               see_screen()
                print("<게임 방법>\n")
                print("가장 최근에 길을 잃어버린 적이 있는 사람이 먼저 시작합니다.")
                print("이제부터는 주머니에서 뽑아 놓은 마법 심볼이 있는 칸에 가장 먼저 도착해야 합니다.")
@@ -178,8 +197,10 @@ def run():
                print("마법 심볼 칸에 도착하면 주머니에서 새 마법 심볼 칩을 꺼냅니다.")
                print("\n")
                print("한 사람이 5개의 마법 심볼을 모으면 게임이 끝납니다.\n")
+               time.sleep(2)
 
           elif menu ==3:
+               see_screen()
                score_list=[]
                for i in score.items():
                     rate = int(i[1][0])/(int(i[1][0])+int(i[1][1]))
@@ -195,6 +216,7 @@ def run():
                     print("%d. %s | 승률: %.2f | Win: %s | Lose: %s" %(n, i[0],i[1],i[2],i[3]))
                     n+=1
                print("\n")
+               time.sleep(2)
 
           elif menu ==4:
                break
