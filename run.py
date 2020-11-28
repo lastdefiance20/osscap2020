@@ -36,14 +36,14 @@ def game_level():
 
 def menu_display(num):
     if num == 1:
-        for x in range(26):
+        for x in range(25):
              for y in range(5):
                 start = dt.start()
                 color = start[y][x]
                 if color == 1:
                     LMD.set_pixel(x, y+2, 4)
                     
-        for x in range(22):
+        for x in range(21):
              for y in range(5):
                 start = dt.rule()
                 color = start[y][x]
@@ -60,14 +60,14 @@ def menu_display(num):
         LMD.refresh()
         
     else:
-        for x in range(26):
+        for x in range(25):
              for y in range(5):
                 start = dt.rank()
                 color = start[y][x]
                 if color == 1:
                     LMD.set_pixel(x+10, y+2, 4)
                         
-        for x in range(24):
+        for x in range(23):
              for y in range(5):
                 start = dt.quit()
                 color = start[y][x]
