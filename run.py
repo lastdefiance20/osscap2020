@@ -50,9 +50,9 @@ def menu_display(num):
                 if color == 1:
                     LMD.set_pixel(x, y+9, 4)
                     
-        for x in range(9):
+        for x in range(7):
              for y in range(5):
-                start = dt.left()
+                start = dt.right()
                 color = start[y][x]
                 if color == 1:
                     LMD.set_pixel(x+25, y+5, 4)
@@ -65,18 +65,18 @@ def menu_display(num):
                 start = dt.rank()
                 color = start[y][x]
                 if color == 1:
-                    LMD.set_pixel(x+10, y+2, 4)
+                    LMD.set_pixel(x+7, y+2, 4)
                         
         for x in range(23):
              for y in range(5):
                 start = dt.quit()
                 color = start[y][x]
                 if color == 1:
-                    LMD.set_pixel(x+10, y+9, 4)
+                    LMD.set_pixel(x+7, y+9, 4)
                     
-        for x in range(9):
+        for x in range(7):
              for y in range(5):
-                start = dt.right()
+                start = dt.left()
                 color = start[y][x]
                 if color == 1:
                     LMD.set_pixel(x, y+5, 4)
