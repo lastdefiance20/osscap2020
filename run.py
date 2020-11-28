@@ -1,4 +1,15 @@
+import board as 
+
 import board as bd
+import LED_display as LMD
+import threading
+
+#화면세팅?
+def LED_init():
+    thread=threading.Thread(target=LMD.main, args=())
+    thread.setDaemon(True)
+    thread.start()
+    return
 
 def print_menu():
      print("<마법의 미로>\n\n")
@@ -45,14 +56,32 @@ def run():
                bd.random_score_start(game_board)
                
                while True:
+                    LED_init()
+                    
                     dice_n = bd.random_dice()
                     symbol = bd.character_move(game_board, 1, dice_n, Player1, Player2, symbol)
                     bd.board_print(game_board)
+                    
+                    #화면출력
+                    for x in range(13):
+                         for y in range(13):
+                              color = game_board[y][x]
+                              LMD.set_pixel(x, y, color)
+                    LMD.refresh()
+                    
                     if 5 in symbol:
                          break
                     dice_n = bd.random_dice()
                     symbol = bd.character_move(game_board, 2, dice_n, Player1, Player2, symbol)
                     bd.board_print(game_board)
+                    
+                    #화면출력
+                    for x in range(13):
+                         for y in range(13):
+                              color = game_board[y][x]
+                              LMD.set_pixel(x, y, color)
+                    LMD.refresh()
+                    
                     if 5 in symbol:
                          break
                          
