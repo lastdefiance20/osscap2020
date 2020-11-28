@@ -41,6 +41,7 @@ def board_print(board):
         print()
     
     #led 출력
+    LMD.clear_pixel()
     for x in range(13):
          for y in range(13):
             color = board[y][x]
