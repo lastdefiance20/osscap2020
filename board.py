@@ -43,8 +43,8 @@ def board_print(board):
     #led 출력
     for x in range(13):
          for y in range(13):
-              color = game_board[y][x]
-              LMD.set_pixel(x, y, color)
+              color = board[y][x]
+              LMD.set_pixel(x+1, y+1, color)
     LMD.refresh()
 
 def check_wall(board):
