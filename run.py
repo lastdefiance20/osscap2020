@@ -16,14 +16,14 @@ def print_menu():
      print("1. Play")
      print("2. Rule")
      print("3. Ranking")
-     print("4. Exit\n")
+     print("4. Exit")
+     print("5. swap\n")
      
-     #출력
-     while True:
-        LMD.refresh()
-    
+     LMD.refresh()
      menu = int(input("Choose the menu: "))
+     LMD.refresh()
      print("\n")
+     LMD.refresh()
      return menu
 
 def game_level():
@@ -62,8 +62,6 @@ def menu_display(num):
                 color = start[y][x]
                 if color == 1:
                     LMD.set_pixel(x+25, y+5, 4)
-         
-        LMD.refresh()
         
     else:
         LMD.clear_pixel()
@@ -89,13 +87,11 @@ def menu_display(num):
                 if color == 1:
                     LMD.set_pixel(x, y+5, 4)
                     
-        LMD.refresh()
 
 def run():
      menu_num = 1
      while 1:
           menu_display(menu_num)
-          LMD.refresh()
           menu = print_menu()
           if menu ==1:
                print("<Enter your name>\n")
