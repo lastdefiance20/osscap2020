@@ -1,5 +1,3 @@
-import board as 
-
 import board as bd
 import LED_display as LMD
 import threading
