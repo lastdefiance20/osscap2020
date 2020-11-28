@@ -129,7 +129,7 @@ def run():
           elif menu ==3:
                score_list=[]
                for i in score.items():
-                    rate = i[1][0]/(i[1][0]+i[1][1])
+                    rate = int(i[1][0])/(int(i[1][0])+int(i[1][1]))
                     score_list.append([i[0],rate,i[1][0],i[1][1]])
               
                for j in range(1, len(score_list)):
@@ -139,7 +139,7 @@ def run():
                n=1
                print("<Ranking>\n")
                for i in score_list:
-                    print("%d. %s | 승률: %.2f | Win: %d | Lose: %d" %(n, i[0],i[1],i[2],i[3]))
+                    print("%d. %s | 승률: %.2f | Win: %s | Lose: %s" %(n, i[0],i[1],i[2],i[3]))
                     n+=1
                print("\n")
 
