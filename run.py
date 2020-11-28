@@ -19,7 +19,8 @@ def print_menu():
      print("4. Exit\n")
      
      #출력
-     LMD.refresh()
+     while True:
+        LMD.refresh()
     
      menu = int(input("Choose the menu: "))
      print("\n")
