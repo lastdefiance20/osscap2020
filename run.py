@@ -87,6 +87,7 @@ def run():
      menu_num = 1
      while 1:
           menu_display(menu_num)
+          LMD.refresh()
           menu = print_menu()
           if menu ==1:
                print("<Enter your name>\n")
