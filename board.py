@@ -182,7 +182,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                     b=y
 
     for i in range(dice_n):
-        if crash = True:
+        if crash == True:
             print("cracked wall~")
             crash = False
             break
