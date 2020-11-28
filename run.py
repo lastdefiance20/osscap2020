@@ -21,9 +21,7 @@ def print_menu():
      
      LMD.refresh()
      menu = int(input("Choose the menu: "))
-     LMD.refresh()
      print("\n")
-     LMD.refresh()
      return menu
 
 def game_level():
@@ -89,6 +87,7 @@ def menu_display(num):
                     
 
 def run():
+     LED_init()
      menu_num = 1
      while 1:
           menu_display(menu_num)
@@ -110,8 +109,6 @@ def run():
                bd.random_score_start(game_board)
                
                while True:
-                    LED_init()
-                    
                     dice_n = bd.random_dice()
                     symbol = bd.character_move(game_board, 1, dice_n, Player1, Player2, symbol)
                     bd.board_print(game_board)
