@@ -1,6 +1,7 @@
 import random
 import time
 import copy
+import LED_display as LMD
 
 def board_reset():
     #벽 = 2(빈곳) 3(벽세운곳)
@@ -38,6 +39,13 @@ def board_print(board):
             elif x == 9: print("■", end = (""))
             else: print("▩", end = (""))
         print()
+    
+    #led 출력
+    for x in range(13):
+         for y in range(13):
+              color = game_board[y][x]
+              LMD.set_pixel(x, y, color)
+    LMD.refresh()
 
 def check_wall(board):
     #정말 까다로웠음,,, 탐색을 해나가는 오픈소스 참고 작성함
