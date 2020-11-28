@@ -1,4 +1,4 @@
-def Start():
+def start():
     # 19 * 5
     list_1 = [[1,1,1,0,1,1,1,0,0,1,0,0,1,1,0,0,1,1,1],
               [1,0,0,0,0,1,0,0,1,0,1,0,1,0,1,0,0,1,0],
@@ -15,4 +15,4 @@ def dot_print(dot_list):
             else: print(" ", end = (""))
         print()
 
-dot_print(Start())
+dot_print(start())
