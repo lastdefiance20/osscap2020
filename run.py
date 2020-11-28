@@ -1,6 +1,7 @@
 import board as bd
 import LED_display as LMD
 import threading
+import dot as dt
 
 #화면세팅?
 def LED_init():
@@ -32,10 +33,60 @@ def game_level():
                return 21
           else:
                print("Choose the right game level!\n")
-     
+
+def menu_display(num):
+    if num == 1:
+        for x in range(26):
+             for y in range(5):
+                start = dt.start()
+                color = start[y][x]
+                if color == 1:
+                    LMD.set_pixel(x, y+2, 4)
+                    
+        for x in range(22):
+             for y in range(5):
+                start = dt.rule()
+                color = start[y][x]
+                if color == 1:
+                    LMD.set_pixel(x, y+9, 4)
+                    
+        for x in range(9):
+             for y in range(5):
+                start = dt.left()
+                color = start[y][x]
+                if color == 1:
+                    LMD.set_pixel(x+26, y+5, 4)
+                    
+        LMD.refresh()
+        
+    else:
+        for x in range(26):
+             for y in range(5):
+                start = dt.rank()
+                color = start[y][x]
+                if color == 1:
+                    LMD.set_pixel(x+10, y+2, 4)
+                        
+        for x in range(24):
+             for y in range(5):
+                start = dt.quit()
+                color = start[y][x]
+                if color == 1:
+                    LMD.set_pixel(x+10, y+9, 4)
+                    
+        for x in range(9):
+             for y in range(5):
+                start = dt.right()
+                color = start[y][x]
+                if color == 1:
+                    LMD.set_pixel(x, y+5, 4)
+                    
+        LMD.refresh()
 
 def run():
+     menu_num = 1
      while 1:
+          menu_display(menu_num)
           menu = print_menu()
           if menu ==1:
                print("<Enter your name>\n")
@@ -145,7 +196,12 @@ def run():
 
           elif menu ==4:
                break
-
+                
+          elif menu ==5:
+               if menu_num == 1:
+                    menu_num = 2
+               else:
+                    menu_num = 1
           else:
                print("Choose the right menu!\n")
 
