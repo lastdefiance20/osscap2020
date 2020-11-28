@@ -17,7 +17,10 @@ def print_menu():
      print("2. Rule")
      print("3. Ranking")
      print("4. Exit\n")
-
+     
+     #출력
+     LMD.refresh()
+    
      menu = int(input("Choose the menu: "))
      print("\n")
      return menu
@@ -36,6 +39,8 @@ def game_level():
 
 def menu_display(num):
     if num == 1:
+        LMD.clear_pixel()
+        
         for x in range(25):
              for y in range(5):
                 start = dt.start()
@@ -56,10 +61,12 @@ def menu_display(num):
                 color = start[y][x]
                 if color == 1:
                     LMD.set_pixel(x+25, y+5, 4)
-                    
+         
         LMD.refresh()
         
     else:
+        LMD.clear_pixel()
+        
         for x in range(25):
              for y in range(5):
                 start = dt.rank()
