@@ -96,7 +96,9 @@ def set_pixel(x, y, color):
     screen[y][x] = color
 
 def clear_pixel():
-    screen = [[0 for x in range(32)] for x in range(16)]
+    for x in range (32):
+        for y in range(16):
+            screen[y][x] = 0
     
 def main() :
     while True:
