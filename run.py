@@ -55,7 +55,7 @@ def menu_display(num):
                 start = dt.left()
                 color = start[y][x]
                 if color == 1:
-                    LMD.set_pixel(x+26, y+5, 4)
+                    LMD.set_pixel(x+25, y+5, 4)
                     
         LMD.refresh()
         
