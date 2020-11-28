@@ -180,13 +180,13 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                 if board[x][y]==5:
                     a=x
                     b=y
-
+    
+    crash = False
     for i in range(dice_n):
         if crash == True:
             print("cracked wall~")
             crash = False
             break
-        crash = False
         while True:
             #적절한 break문으로 dice 소모 조건 계산
             board_print(board)
