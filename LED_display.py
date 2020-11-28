@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-delay = 2
+delay = 0.0005
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
