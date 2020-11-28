@@ -95,6 +95,9 @@ def fill_rectangle(x1, y1, x2, y2, color):
 def set_pixel(x, y, color):
     screen[y][x] = color
 
+def clear_pixel():
+    screen = [[0 for x in range(32)] for x in range(16)]
+    
 def main() :
     while True:
         refresh()
