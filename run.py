@@ -201,6 +201,15 @@ def run():
 
           elif menu ==3:
                see_screen()
+                
+               f=open("score.txt",encoding="utf-8")
+               words =f.read().splitlines()
+               f.close
+
+               score= {}
+               for i in range(int(len(words)/3)):
+                    score[words[i*3]] = [words[i*3+1], words[i*3+2]]
+                
                score_list=[]
                for i in score.items():
                     rate = int(i[1][0])/(int(i[1][0])+int(i[1][1]))
