@@ -29,6 +29,9 @@ def board_reset():
 def board_print(board):
     #보드 출력 (일단 터미널에서)
     #벽은 네모, 플레이어는 '우선' 플레이어 1 2 구분하지 않고 X로 표기했다.
+    
+    #터미널 출력
+    '''
     for y in board:
         for x in y:
             if x == 0: print(" ", end = (""))
@@ -40,6 +43,7 @@ def board_print(board):
             elif x == 9: print("■", end = (""))
             else: print("▩", end = (""))
         print()
+    '''
     
     #led 출력
     LMD.clear_pixel()
