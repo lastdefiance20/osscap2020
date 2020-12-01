@@ -258,7 +258,7 @@ def run():
                     score[words[i*3]] = [words[i*3+1], words[i*3+2]]
                    
                if symbol[0] == 5:
-		    P1_win()
+                    P1_win()
                     print("P1 %s win" %Player1)
                     if Player1 in score:
                          score[Player1][0]= str(int(score[Player1][0])+1)
@@ -270,7 +270,7 @@ def run():
                          score.update({Player2: ['0','1']})	
                          
                elif symbol[1] == 5:
-		    P2_win()
+                    P2_win()
                     print("P2 %s win" %Player2)
                     if Player2 in score:
                          score[Player2][0]= str(int(score[Player2][0])+1)
@@ -291,7 +291,7 @@ def run():
                 
                fg.write("\n".join(score_list_update))
                fg.close()
-	       time.sleep(5)
+               time.sleep(5)
                
           elif menu ==2:
                see_screen()
