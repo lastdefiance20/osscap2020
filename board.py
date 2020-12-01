@@ -111,7 +111,6 @@ def random_wall(wall_num, board):
         random_wall_set = set([])
         while (len(random_wall_set) < wall_num):
             random_wall_set.add(random.randint(0, 59))
-        print(random_wall_set)
 
         #세로벽 좌표
         col_wall = []
@@ -139,7 +138,7 @@ def random_wall(wall_num, board):
 
         #check_wall의 개수가 36이면 36칸 다 접근가능하다는 뜻이라 return
         #아니면 어딘가 접근 불가능한, 막힌 구간이 있기 때문에 다시 보드를 짠다
-        time.sleep(.5)
+        time.sleep(.3)
         print("접근가능한 바닥 개수 = %d" %len(check_wall(board)))
 
         if len(check_wall(board)) == 36:
@@ -168,13 +167,13 @@ def random_dice(player_n):
         else:
             pd.P2_roll()
          
-        a= input("주사위를 굴리시오(enter를 입력하시오)")
+        a= input("주사위를 굴리시오(enter를 입력하시오)\n")
         if a=="":
             dice_n = random.randrange(1,5)
             return dice_n
           
         else:
-            print("다시 굴리시오.")
+            print("다시 굴리시오.\n")
             
 def character_move(board, player, dice_n, P1, P2, symbol):
     #symbol에 매직 심볼 개수 플레이어수만큼 리스트, 개수 세고 승리조건 만들기
@@ -195,7 +194,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
     crash = False
     for i in range(dice_n):
         if crash == True:
-            print("cracked wall~")
+            print("cracked wall~\n")
             pd.printcrash()
             time.sleep(1)
             crash = False
@@ -206,7 +205,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
             if player == 1:
                 pd.P1_turn(dice_n-i)
                 pd.symbol(symbol[0])
-                print("P1 %s, has move left %d, has symbol %d" %(P1, dice_n-i, symbol[0]))
+                print("\nP1 %s, has move left %d, has symbol %d" %(P1, dice_n-i, symbol[0]))
                 player_number = 1
             else:
                 pd.P2_turn(dice_n-i)
@@ -225,12 +224,12 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         board[a][b]=player_number
                         break
                     elif board[a][b]==1 or board[a][b]==5:
-                        print("다른 플레이어와 같은 곳에 있을 수 없습니다.")
+                        print("다른 플레이어와 같은 곳에 있을 수 없습니다.\n")
                         b+=2
                         board[a][b]=player_number
                     elif board[a][b]==4:
                         pd.congrats()
-                        print("매직 심볼을 획득하셨습니다. 축하드립니다.")
+                        print("매직 심볼을 획득하셨습니다. 축하드립니다.\n")
                         board[a][b]=player_number
                         random_score_start(board)
                         if player == 1:
@@ -254,7 +253,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         crash = True
                         break
                 else:
-                    print("갈 수 없습니다.")
+                    print("갈 수 없습니다.\n")
                     b +=1
                     board[a][b]=player_number
                     
@@ -268,12 +267,12 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         board[a][b]=player_number
                         break
                     elif board[a][b]==1 or board[a][b]==5:
-                        print("다른 플레이어와 같은 곳에 있을 수 없습니다.")
+                        print("다른 플레이어와 같은 곳에 있을 수 없습니다.\n")
                         b-=2
                         board[a][b]=player_number
                     elif board[a][b]==4:
                         pd.congrats()
-                        print("매직 심볼을 획득하셨습니다. 축하드립니다.")
+                        print("매직 심볼을 획득하셨습니다. 축하드립니다.\n")
                         board[a][b]=player_number
                         random_score_start(board)
                         if player == 1:
@@ -297,7 +296,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         crash = True
                         break
                 else:
-                    print("갈 수 없습니다.")
+                    print("갈 수 없습니다.\n")
                     b -=1
                     board[a][b]=player_number
 
@@ -310,12 +309,12 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         board[a][b]=player_number
                         break
                     elif board[a][b]==1 or board[a][b]==5:
-                        print("다른 플레이어와 같은 곳에 있을 수 없습니다.")
+                        print("다른 플레이어와 같은 곳에 있을 수 없습니다.\n")
                         a+=2
                         board[a][b]=player_number
                     elif board[a][b]==4:
                         pd.congrats()
-                        print("매직 심볼을 획득하셨습니다. 축하드립니다.")
+                        print("매직 심볼을 획득하셨습니다. 축하드립니다.\n")
                         board[a][b]=player_number
                         random_score_start(board)
                         if player == 1:
@@ -339,7 +338,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         crash = True
                         break
                 else:
-                    print("갈 수 없습니다.")
+                    print("갈 수 없습니다.\n")
                     a +=1
                     board[a][b]=player_number
 
@@ -352,12 +351,12 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         board[a][b]=player_number
                         break
                     elif board[a][b]==1 or board[a][b]==5:
-                        print("다른 플레이어와 같은 곳에 있을 수 없습니다.")
+                        print("다른 플레이어와 같은 곳에 있을 수 없습니다.\n")
                         a-=2
                         board[a][b]=player_number
                     elif board[a][b]==4:
                         pd.congrats()
-                        print("매직 심볼을 획득하셨습니다. 축하드립니다.")
+                        print("매직 심볼을 획득하셨습니다. 축하드립니다.\n")
                         board[a][b]=player_number
                         random_score_start(board)
                         if player == 1:
@@ -381,13 +380,13 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         crash = True
                         break
                 else:
-                    print("갈 수 없습니다.")
+                    print("갈 수 없습니다.\n")
                     a -=1
                     board[a][b]=player_number
         if 5 in symbol:
             return symbol
     if crash == True:
-        print("cracked wall~")
+        print("cracked wall~\n")
         pd.printcrash()
         time.sleep(1)
         crash = False
