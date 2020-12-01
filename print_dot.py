@@ -1,4 +1,5 @@
 import dot as dt
+import LED_display as LMD
 
 def menu_display(num):
     if num == 1:
@@ -171,3 +172,13 @@ def P2_win():
 			color = P2_win[y][x]
 			if color ==1:
 				LMD.set_pixel(x+1,y+4,4)
+				
+def printcrash():
+    LMD.clear_pixel()
+        
+    for x in range(29):
+         for y in range(7):
+            crash = dt.crash()
+            color = crash[y][x]
+            if color == 1:
+                LMD.set_pixel(x+1, y+4, 4)
