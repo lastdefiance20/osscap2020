@@ -54,13 +54,13 @@ def run():
                
                pd.level()
 		
-		#터미널 출력
-		'''
+               #터미널 출력
+               '''
                print("\n<Game Level>\n")
                print("1. Easy")
                print("2. Normal")
                print("3. Hard\n")
-		'''
+               '''
                wall_num = game_level()
                print("Start\n")
                symbol = [0, 0]
