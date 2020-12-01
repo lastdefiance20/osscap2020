@@ -182,3 +182,36 @@ def printcrash():
             color = crash[y][x]
             if color == 1:
                 LMD.set_pixel(x+1, y+4, 4)
+		
+def P1_turn():
+	for x in range(3):
+		for y in range(5):
+			P = dt.P()
+			color = P[y][x]
+			if color ==1:
+				LMD.set_pixel(x+17, y+1, 4)
+	
+	for x in range(3):
+		for y in range(5):
+			one = dt.one()
+			color = one[y][x]
+			if color ==1:
+				LMD.set_pixel(x+21, y+1,4)
+	LMD.set_pixel(x+25, y+3,3) 
+
+	
+def P2_turn():
+	for x in range(3):
+		for y in range(5):
+			P = dt.P()
+			color = P[y][x]
+			if color ==1:
+				LMD.set_pixel(x+17, y+1, 4)
+	
+	for x in range(3):
+		for y in range(5):
+			two = dt.two()
+			color = two[y][x]
+			if color ==1:
+				LMD.set_pixel(x+21, y+1,4)
+	LMD.set_pixel(x+25, y+3,5)
