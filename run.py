@@ -22,7 +22,7 @@ def print_menu():
      '''
      LMD.refresh()
      menu = int(input("Choose the menu: "))
-     print("\n")
+     print()
      return menu
 
 def game_level():
@@ -40,9 +40,9 @@ def game_level():
 def run():
      LED_init()
      menu_num = 1
+     print("<마법의 미로>\n")
      while 1:
           pd.menu_display(menu_num)
-          print("<마법의 미로>\n")
           menu = print_menu()
           if menu ==1:
                pd.name()
