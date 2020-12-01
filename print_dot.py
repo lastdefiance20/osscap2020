@@ -398,13 +398,28 @@ def show_wall(y, x):
 	time.sleep(3)
 	
 def congrats():
-    for x in range(32):
-        for y in range(16):
-            congrats = dt.congrats()
-            color = congrats[y][x]
-            if color == 1:
-                LMD.set_pixel(x,y,6)
-            elif color ==2:
-                LMD.set_pixel(x,y,7)
-            elif color ==3:
-                LMD.set_pixel(x,y,8)
+	for i in range(5):
+		for x in range(32):
+			for y in range(16):
+				congrats = dt.congrats()
+				color = congrats[y][x]
+				if color == 1:
+					LMD.set_pixel(x,y,6)
+				elif color ==2:
+					LMD.set_pixel(x,y,7)
+				elif color ==3:
+					LMD.set_pixel(x,y,8)
+		time.sleep(0.2)
+		for x in range(32):
+			for y in range(16):
+				congrats = dt.congrats()
+				color = congrats[y][x]
+				if color == 1:
+					LMD.set_pixel(x,y,8)
+				elif color ==2:
+					LMD.set_pixel(x,y,6)
+				elif color ==3:
+					LMD.set_pixel(x,y,7)
+		time.sleep(0.2)
+		
+	    
