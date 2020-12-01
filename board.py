@@ -158,8 +158,13 @@ def random_score_start(board):
             board[i][j]=4
             break 
 
-def random_dice():
+def random_dice(player_n):
     while True:
+        if player_n == 1:
+            pd.P1()
+        else:
+            pd.P2()
+            
         pd.roll()
         a= input("주사위를 굴리시오(enter를 입력하시오)")
         if a=="":
