@@ -161,11 +161,10 @@ def random_score_start(board):
 def random_dice(player_n):
     while True:
         if player_n == 1:
-            pd.P1()
+            pd.P1_roll()
         else:
-            pd.P2()
-            
-        pd.roll()
+            pd.P2_roll()
+         
         a= input("주사위를 굴리시오(enter를 입력하시오)")
         if a=="":
             dice_n = random.randrange(1,5)
