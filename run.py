@@ -12,14 +12,14 @@ def LED_init():
     return
 
 def print_menu():
-     print("<마법의 미로>\n\n")
-
+     #터미널 출력
+     '''
      print("1. Play")
      print("2. Rule")
      print("3. Ranking")
      print("4. Exit")
      print("5. swap\n")
-     
+     '''
      LMD.refresh()
      menu = int(input("Choose the menu: "))
      print("\n")
@@ -42,6 +42,7 @@ def run():
      menu_num = 1
      while 1:
           pd.menu_display(menu_num)
+          print("<마법의 미로>\n")
           menu = print_menu()
           if menu ==1:
                pd.name()
@@ -52,10 +53,14 @@ def run():
                Player2= input("Player2: ")
                
                pd.level()
+		
+		#터미널 출력
+		'''
                print("\n<Game Level>\n")
                print("1. Easy")
                print("2. Normal")
                print("3. Hard\n")
+		'''
                wall_num = game_level()
                print("Start\n")
                symbol = [0, 0]
