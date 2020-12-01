@@ -394,8 +394,8 @@ def P2_roll():
 	LMD.set_pixel(25, 3,5)
 	roll()
 	
-def show_wall(x, y):
-	LMD.set_pixel(x, y, 1)
+def show_wall(y, x):
+	LMD.set_pixel(x+1, y+1, 1)
 	time.sleep(2)
 	
 def congrats():
