@@ -303,4 +303,42 @@ def symbol(n):
 					LMD.set_pixel(x+25,y+7,4)
 				elif color ==2:
 					LMD.set_pixel(x+25,y+7,7)
+	if n ==2:
+		for x in range(5):
+			for y in range(7):
+				m_2 = dt.m_2()
+				color = m_2[y][x]
+				if color ==1:
+					LMD.set_pixel(x+25,y+7,4)
+				if color ==2:
+					LMD.set_pixel(x+25,y+7,7)
 
+	if n ==3:
+		for x in range(5):
+			for y in range(7):
+				m_3= dt.m_3()
+				color = m_3[y][x]
+				if color ==1:
+					LMD.set_pixel(x+25,y+7,4)
+				if color ==2:
+					LMD.set_pixel(x+25,y+7,7)
+
+	if n ==4:
+		for x in range(5):
+			for y in range(7):
+				m_4 = dt.m_4()
+				color = m_4[y][x]
+				if color ==1:
+					LMD.set_pixel(x+25,y+7,4)
+				if color ==2:
+					LMD.set_pixel(x+25,y+7,7)
+
+	if n ==5:
+		for x in range(5):
+			for y in range(7):
+				m_5= dt.m_5()
+				color = m_5[y][x]
+				if color ==1:
+					LMD.set_pixel(x+25,y+7,4)
+				if color ==2:
+					LMD.set_pixel(x+25,y+7,7)
