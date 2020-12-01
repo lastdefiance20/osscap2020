@@ -159,7 +159,7 @@ def P2():
 				LMD.set_pixel(x+25,y+10,4)
 
 def level():
-    LMD. clear_pixel()
+	LMD. clear_pixel()
 
 	for x in range(21):
 		for y in range(7):
@@ -190,7 +190,7 @@ def level():
 				LMD.set_pixel(x+25, y+10,4) 
 
 def P1_win():
-    LMD. clear_pixel()
+	LMD. clear_pixel()
 
 	for x in range(28):
 		for y in range(7):
@@ -200,7 +200,7 @@ def P1_win():
 				LMD.set_pixel(x+2,y+4,4)
 
 def P2_win():
-     LMD. clear_pixel()
+	LMD. clear_pixel()
 
 	for x in range(28):
 		for y in range(7):
