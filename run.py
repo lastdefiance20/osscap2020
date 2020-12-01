@@ -192,22 +192,22 @@ def level():
 def P1_win():
 	LMD. clear_pixel()
 
-	for x in range(28):
+	for x in range(29):
 		for y in range(7):
 			P1_win = dt.P1_win()
 			color = P1_win[y][x]
 			if color ==1:
-				LMD.set_pixel(x+2,y+4,4)
+				LMD.set_pixel(x+1,y+4,4)
 
 def P2_win():
 	LMD. clear_pixel()
 
-	for x in range(28):
+	for x in range(29):
 		for y in range(7):
 			P2_win = dt.P2_win()
 			color = P2_win[y][x]
 			if color ==1:
-				LMD.set_pixel(x+2,y+4,4)
+				LMD.set_pixel(x+1,y+4,4)
     
 def run():
      LED_init()
