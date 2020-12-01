@@ -194,7 +194,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
         if crash == True:
             print("cracked wall~")
             pd.printcrash()
-            time.sleep(2)
+            time.sleep(1)
             crash = False
             break
         while True:
@@ -236,6 +236,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         break
                 elif board[a][b]==3:
                     print( "갈 수 없습니다.")
+                    pd.show_wall(a, b)
                     if player == 1:
                         a=1
                         b=1
@@ -277,6 +278,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         break
                 elif board[a][b]==3:
                     print( "갈 수 없습니다.")
+                    pd.show_wall(a, b)
                     if player == 1:
                         a=1
                         b=1
@@ -317,6 +319,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         break
                 elif board[a][b]==3:
                     print( "갈 수 없습니다.")
+                    pd.show_wall(a, b)
                     if player == 1:
                         a=1
                         b=1
@@ -357,6 +360,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         break
                 elif board[a][b]==3:
                     print( "갈 수 없습니다.")
+                    pd.show_wall(a, b)
                     if player == 1:
                         a=1
                         b=1
@@ -378,6 +382,6 @@ def character_move(board, player, dice_n, P1, P2, symbol):
     if crash == True:
         print("cracked wall~")
         pd.printcrash()
-        time.sleep(2)
+        time.sleep(1)
         crash = False
     return symbol
