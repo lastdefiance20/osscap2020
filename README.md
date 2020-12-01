@@ -14,7 +14,7 @@
 - score.txt - 각 대전기록이 기록된 txt 파일
 
 ## 프로젝트 개요
-* [프로젝트 개요] (./Project proposal_team 8 - ver2.pdf)
+* [프로젝트 개요](./run.py)
 
 ## 준비물
 
