@@ -35,14 +35,14 @@ def menu_display(num):
                 start = dt.rank()
                 color = start[y][x]
                 if color == 1:
-                    LMD.set_pixel(x+7, y+2, 4)
+                    LMD.set_pixel(x+8, y+2, 4)
                         
         for x in range(23):
              for y in range(5):
                 start = dt.quit()
                 color = start[y][x]
                 if color == 1:
-                    LMD.set_pixel(x+7, y+9, 4)
+                    LMD.set_pixel(x+8, y+9, 4)
                     
         for x in range(7):
              for y in range(5):
