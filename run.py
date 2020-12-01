@@ -258,6 +258,7 @@ def run():
                     score[words[i*3]] = [words[i*3+1], words[i*3+2]]
                    
                if symbol[0] == 5:
+		    P1_win()
                     print("P1 %s win" %Player1)
                     if Player1 in score:
                          score[Player1][0]= str(int(score[Player1][0])+1)
@@ -266,10 +267,10 @@ def run():
                     if Player2 in score:
                          score[Player2][1]= str(int(score[Player2][1])+1)
                     else:
-                         score.update({Player2: ['0','1']})
-		    P1_win()	
+                         score.update({Player2: ['0','1']})	
                          
                elif symbol[1] == 5:
+		    P2_win()
                     print("P2 %s win" %Player2)
                     if Player2 in score:
                          score[Player2][0]= str(int(score[Player2][0])+1)
@@ -279,8 +280,7 @@ def run():
                          score[Player1][1]= str(int(score[Player1][1])+1)
                     else:
                          score.update({Player1: ['0','1']})
-		    P2_win()
-
+		 
                #score.txt갱신하기
                score_list_update= []
                fg = open("score.txt",mode="w+t",encoding="utf-8")
