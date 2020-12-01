@@ -51,7 +51,6 @@ def board_print(board):
                     LMD.set_pixel(x+1, y+1, 3)
                 else:
                     LMD.set_pixel(x+1, y+1, color)
-    LMD.refresh()
 
 def check_wall(board):
     #정말 까다로웠음,,, 탐색을 해나가는 오픈소스 참고 작성함
