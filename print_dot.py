@@ -67,7 +67,6 @@ def see_screen():
             color = b[y][x]
             if color == 1:
                     LMD.set_pixel(x+3, y+9, 4)
-    LMD.refresh()
     
 def name():
 	LMD.clear_pixel()
