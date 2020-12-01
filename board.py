@@ -196,9 +196,11 @@ def character_move(board, player, dice_n, P1, P2, symbol):
             #적절한 break문으로 dice 소모 조건 계산
             board_print(board)
             if player == 1:
+                pd.P1_turn()
                 print("P1 %s, has move left %d, has symbol %d" %(P1, dice_n-i, symbol[0]))
                 player_number = 1
             else:
+                pd.P2_turn()
                 print("P2 %s, has move left %d, has symbol %d" %(P2, dice_n-i, symbol[1]))
                 player_number = 5
 
