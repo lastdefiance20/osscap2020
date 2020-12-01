@@ -406,5 +406,5 @@ def congrats():
                 LMD.set_pixel(x,y,6)
             elif color ==2:
                 LMD.set_pixel(x,y,7)
-            elif color ==0:
+            elif color ==3:
                 LMD.set_pixel(x,y,8)
