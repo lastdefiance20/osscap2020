@@ -104,6 +104,111 @@ def see_screen():
                     LMD.set_pixel(x+3, y+9, 4)
     LMD.refresh()
     
+def name():
+	LMD.clear_pixel()
+	
+	for x in range (19):
+		for y in range(7):
+			name = dt.name()
+			color = name[y][x]
+			if color == 1:
+				LMD.set_pixel(x+1, y+1,4)
+
+def P1():
+	for x in range(3):
+		for y in range(5):
+			P = dt.P()
+			color = P[y][x]
+			if color ==1:
+				LMD.set_pixel(x+1, y+10, 4)
+	
+	for x in range(3):
+		for y in range(5):
+			one = dt.one()
+			color = one[y][x]
+			if color ==1:
+				LMD.set_pixel(x+5, y+10,4)
+
+	for x in range(1):
+		for y in range(5):
+			colon = dt.colon()
+			color = colon[y][x]
+			if color ==1:
+				LMD.set_pixel(x+9,y+10,4)
+
+def P2():
+	for x in range(3):
+		for y in range(5):
+			P = dt.P()
+			color = P[y][x]
+			if color ==1:
+				LMD.set_pixel(x+17, y+10, 4)
+	
+	for x in range(3):
+		for y in range(5):
+			two = dt.two()
+			color = two[y][x]
+			if color ==1:
+				LMD.set_pixel(x+21, y+10,4)
+
+	for x in range(1):
+		for y in range(5):
+			colon = dt.colon()
+			color = colon[y][x]
+			if color ==1:
+				LMD.set_pixel(x+25,y+10,4)
+
+def level():
+    LMD. clear_pixel()
+
+	for x in range(21):
+		for y in range(7):
+			level = dt.level()
+			color = level[y][x]
+			if color ==1:
+				LMD.set_pixel(x+1,y+1,4)
+	
+	for x in range(3):
+		for y in range(5):
+			one = dt.one()
+			color = one[y][x]
+			if color ==1:
+				LMD.set_pixel(x+3, y+10,4)
+
+	for x in range(3):
+		for y in range(5):
+			two = dt.two()
+			color = two[y][x]
+			if color ==1:
+				LMD.set_pixel(x+14, y+10,4)
+	
+	for x in range(3):
+		for y in range(5):
+			three= dt.three()
+			color = three[y][x]
+			if color ==1:
+				LMD.set_pixel(x+25, y+10,4) 
+
+def P1_win():
+    LMD. clear_pixel()
+
+	for x in range(28):
+		for y in range(7):
+			P1_win = dt.P1_win()
+			color = P1_win[y][x]
+			if color ==1:
+				LMD.set_pixel(x+2,y+4,4)
+
+def P2_win():
+     LMD. clear_pixel()
+
+	for x in range(28):
+		for y in range(7):
+			P2_win = dt.P2_win()
+			color = P2_win[y][x]
+			if color ==1:
+				LMD.set_pixel(x+2,y+4,4)
+    
 def run():
      LED_init()
      menu_num = 1
@@ -111,10 +216,14 @@ def run():
           menu_display(menu_num)
           menu = print_menu()
           if menu ==1:
+               name()
                print("<Enter your name>\n")
+               P1()
                Player1= input("Player1: ")
+               P2()
                Player2= input("Player2: ")
-
+               
+               level()
                print("\n<Game Level>\n")
                print("1. Easy")
                print("2. Normal")
@@ -149,6 +258,7 @@ def run():
                     score[words[i*3]] = [words[i*3+1], words[i*3+2]]
                    
                if symbol[0] == 5:
+                    P1_win()
                     print("P1 %s win" %Player1)
                     if Player1 in score:
                          score[Player1][0]= str(int(score[Player1][0])+1)
@@ -160,6 +270,7 @@ def run():
                          score.update({Player2: ['0','1']})
                          
                elif symbol[1] == 5:
+                    P2_win()
                     print("P2 %s win" %Player2)
                     if Player2 in score:
                          score[Player2][0]= str(int(score[Player2][0])+1)
