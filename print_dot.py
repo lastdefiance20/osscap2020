@@ -303,6 +303,15 @@ def symbol(n):
 					LMD.set_pixel(x+25,y+7,4)
 				elif color ==2:
 					LMD.set_pixel(x+25,y+7,7)
+	if n ==1:
+		for x in range(5):
+			for y in range(7):
+				m_1 = dt.m_1()
+				color = m_1[y][x]
+				if color ==1:
+					LMD.set_pixel(x+25,y+7,4)
+				if color ==2:
+					LMD.set_pixel(x+25,y+7,7)
 	if n ==2:
 		for x in range(5):
 			for y in range(7):
