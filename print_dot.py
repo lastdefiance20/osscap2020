@@ -392,3 +392,15 @@ def P2_roll():
 				LMD.set_pixel(x+21, y+1,5)
 	LMD.set_pixel(25, 3,5)
 	roll()
+
+def congrats():
+    for x in range(32):
+        for y in range(16):
+            congrats = dt.congrats()
+            color = congrats[y][x]
+            if color == 1:
+                LMD.set_pixel(x,y,6)
+            elif color ==2:
+                LMD.set_pixel(x,y,7)
+            elif color ==0:
+                LMD.set_pixel(x,y,8)
