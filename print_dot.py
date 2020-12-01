@@ -351,3 +351,11 @@ def symbol(n):
 					LMD.set_pixel(x+25,y+7,4)
 				if color ==2:
 					LMD.set_pixel(x+25,y+7,7)
+					
+def roll():
+	for x in range(17):
+		for y in range(5):
+			roll_dice = dt.roll_dice()
+			color = roll_dice[y][x]
+			if color ==1:
+				LMD.set_pixel(x+15,y+8,4)
