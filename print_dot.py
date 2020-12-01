@@ -395,8 +395,8 @@ def P2_roll():
 	roll()
 	
 def show_wall(y, x):
-	LMD.set_pixel(x+1, y+1, 1)
-	time.sleep(2)
+	LMD.set_pixel(x+1, y+1, 7)
+	time.sleep(3)
 	
 def congrats():
     for x in range(32):
