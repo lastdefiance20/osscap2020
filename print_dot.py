@@ -293,4 +293,14 @@ def P2_turn(n):
 					LMD.set_pixel(x+17,y+7,6)   
 				elif color ==2:
 					LMD.set_pixel(x+17,y+7,7)
+def symbol(n):
+	if n ==0:
+		for x in range(5):
+			for y in range(7):
+				m_0 = dt.m_0()
+				color = m_0[y][x]
+				if color ==1:
+					LMD.set_pixel(x+25,y+7,4)
+				elif color ==2:
+					LMD.set_pixel(x+25,y+7,7)
 
