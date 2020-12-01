@@ -37,6 +37,6 @@ $ python3 run.py
 
 ## 사용방법
 
-* [마법의 미로 룰 설명영상]https://www.youtube.com/watch?v=IQlCOqgsUzA
+* [마법의 미로 룰 설명영상](https://www.youtube.com/watch?v=IQlCOqgsUzA)
 
 기본적으로 마법의 미로 보드게임을 자동화한 게임이다.
