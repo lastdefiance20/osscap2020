@@ -20,7 +20,7 @@
 
 준비물로는 라즈베리파이, 32 * 16 led matrix, 키보드, 모니터가 필요하다. 
 
-## 사용방법
+## 설치방법
 
 First, clone the code and move to the file:
 
@@ -34,3 +34,9 @@ Second, run the code using python and enjoy the game!
 ```
 $ python3 run.py
 ```
+
+## 사용방법
+
+* [마법의 미로 룰 설명영상]https://www.youtube.com/watch?v=IQlCOqgsUzA
+
+기본적으로 마법의 미로 보드게임을 자동화한 게임이다.
