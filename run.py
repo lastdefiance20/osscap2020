@@ -64,13 +64,13 @@ def run():
                bd.random_score_start(game_board)
                
                while True:
-                    dice_n = bd.random_dice()
+                    dice_n = bd.random_dice(1)
                     symbol = bd.character_move(game_board, 1, dice_n, Player1, Player2, symbol)
                     bd.board_print(game_board)
                     
                     if 5 in symbol:
                          break
-                    dice_n = bd.random_dice()
+                    dice_n = bd.random_dice(2)
                     symbol = bd.character_move(game_board, 2, dice_n, Player1, Player2, symbol)
                     bd.board_print(game_board)
                     
