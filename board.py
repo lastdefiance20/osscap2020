@@ -371,5 +371,4 @@ def character_move(board, player, dice_n, P1, P2, symbol):
         pd.printcrash()
         time.sleep(2)
         crash = False
-        break
     return symbol
