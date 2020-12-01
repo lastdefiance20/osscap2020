@@ -262,7 +262,7 @@ def P2_turn(n):
 				if color ==1:
 					LMD.set_pixel(x+17,y+8,6)   
 				elif color ==2:
-					LMD.set_pixel(x+17,y+8,6) 
+					LMD.set_pixel(x+17,y+8,7) 
 					
 	if n==2:
 		for x in range(6):
