@@ -183,7 +183,7 @@ def printcrash():
             if color == 1:
                 LMD.set_pixel(x+1, y+4, 4)
 		
-def P1_turn():
+def P1_turn(n):
 	for x in range(3):
 		for y in range(5):
 			P = dt.P()
@@ -199,8 +199,18 @@ def P1_turn():
 				LMD.set_pixel(x+21, y+1,3)
 	LMD.set_pixel(25,3,3) 
 
+	if n==1:
+        for x in range(6):
+            for y in range(7):
+                dice_1= dt.dice_1()
+                color = dice_1[y][x]
+            if color ==1:
+                LMD.set_pixel(x+25,y+8,6)   
+            else:
+                LMD.set_pixel(x+25,y+8,6) 
+
 	
-def P2_turn():
+def P2_turn(n):
 	for x in range(3):
 		for y in range(5):
 			P = dt.P()
@@ -215,3 +225,13 @@ def P2_turn():
 			if color ==1:
 				LMD.set_pixel(x+21, y+1,5)
 	LMD.set_pixel(25, 3,5)
+	
+	if n==1:
+        for x in range(6):
+            for y in range(7):
+                dice_1= dt.dice_1()
+                color = dice_1[y][x]
+            if color ==1:
+                LMD.set_pixel(x+25,y+8,6)   
+            else:
+                LMD.set_pixel(x+25,y+8,6) 
