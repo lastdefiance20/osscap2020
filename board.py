@@ -225,6 +225,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         b+=2
                         board[a][b]=player_number
                     elif board[a][b]==4:
+                        pd.congrats()
                         print("매직 심볼을 획득하셨습니다. 축하드립니다.")
                         board[a][b]=player_number
                         random_score_start(board)
@@ -267,6 +268,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         b-=2
                         board[a][b]=player_number
                     elif board[a][b]==4:
+                        pd.congrats()
                         print("매직 심볼을 획득하셨습니다. 축하드립니다.")
                         board[a][b]=player_number
                         random_score_start(board)
@@ -308,6 +310,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         a+=2
                         board[a][b]=player_number
                     elif board[a][b]==4:
+                        pd.congrats()
                         print("매직 심볼을 획득하셨습니다. 축하드립니다.")
                         board[a][b]=player_number
                         random_score_start(board)
@@ -349,6 +352,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                         a-=2
                         board[a][b]=player_number
                     elif board[a][b]==4:
+                        pd.congrats()
                         print("매직 심볼을 획득하셨습니다. 축하드립니다.")
                         board[a][b]=player_number
                         random_score_start(board)
