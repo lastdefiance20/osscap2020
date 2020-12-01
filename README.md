@@ -13,6 +13,9 @@
 - LED_display.py - led 디스플레이 세팅 및 클리어가 가능한 코드
 - score.txt - 각 대전기록이 기록된 txt 파일
 
+## 프로젝트 개요
+* [프로젝트 개요] (./Project proposal_team 8 - ver2.pdf)
+
 ## 준비물
 
 준비물로는 라즈베리파이, 32 * 16 led matrix, 키보드, 모니터가 필요하다. 
