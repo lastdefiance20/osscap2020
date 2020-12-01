@@ -205,9 +205,9 @@ def P1_turn(n):
 				dice_1= dt.dice_1()
 				color = dice_1[y][x]
 				if color ==1:
-					LMD.set_pixel(x+25,y+8,6)   
-				else:
-					LMD.set_pixel(x+25,y+8,6) 
+					LMD.set_pixel(x+17,y+8,6)   
+				elif color ==2:
+					LMD.set_pixel(x+17,y+8,7) 
 
 	
 def P2_turn(n):
@@ -232,6 +232,6 @@ def P2_turn(n):
 				dice_1= dt.dice_1()
 				color = dice_1[y][x]
 				if color ==1:
-					LMD.set_pixel(x+25,y+8,6)   
-				else:
-					LMD.set_pixel(x+25,y+8,6) 
+					LMD.set_pixel(x+17,y+8,6)   
+				elif color ==2:
+					LMD.set_pixel(x+17,y+8,6) 
