@@ -1,3 +1,4 @@
+import time
 import dot as dt
 import LED_display as LMD
 
@@ -392,7 +393,11 @@ def P2_roll():
 				LMD.set_pixel(x+21, y+1,5)
 	LMD.set_pixel(25, 3,5)
 	roll()
-
+	
+def show_wall(x, y):
+	LMD.set_pixel(a, b, 1)
+	time.sleep(2)
+	
 def congrats():
     for x in range(32):
         for y in range(16):
