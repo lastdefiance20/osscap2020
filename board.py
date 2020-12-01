@@ -210,7 +210,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
             else:
                 pd.P2_turn(dice_n-i)
                 pd.symbol(symbol[1])
-                print("P2 %s, has move left %d, has symbol %d" %(P2, dice_n-i, symbol[1]))
+                print("\P2 %s, has move left %d, has symbol %d" %(P2, dice_n-i, symbol[1]))
                 player_number = 5
 
             key = input("Enter a key from [a (left), d (right), w (up) s (down)] : ")
