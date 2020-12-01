@@ -205,12 +205,12 @@ def character_move(board, player, dice_n, P1, P2, symbol):
             if player == 1:
                 pd.P1_turn(dice_n-i)
                 pd.symbol(symbol[0])
-                print("\nP1 %s, has move left %d, has symbol %d" %(P1, dice_n-i, symbol[0]))
+                print("\nP1 %s, 남은 움직임 %d번, 보유한 매직 심볼 %d개" %(P1, dice_n-i, symbol[0]))
                 player_number = 1
             else:
                 pd.P2_turn(dice_n-i)
                 pd.symbol(symbol[1])
-                print("\P2 %s, has move left %d, has symbol %d" %(P2, dice_n-i, symbol[1]))
+                print("\nP2 %s, 남은 움직임 %d번, 보유한 매직 심볼 %d개" %(P2, dice_n-i, symbol[1]))
                 player_number = 5
 
             key = input("Enter a key from [a (left), d (right), w (up) s (down)] : ")
