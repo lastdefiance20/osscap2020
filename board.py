@@ -2,7 +2,7 @@ import random
 import time
 import copy
 import LED_display as LMD
-import dot as dt
+import print_dot as pd
 
 def board_reset():
     #벽 = 2(빈곳) 3(벽세운곳)
@@ -167,16 +167,6 @@ def random_dice():
           
         else:
             print("다시 굴리시오.")
-
-def printcrash():
-    LMD.clear_pixel()
-        
-    for x in range(29):
-         for y in range(7):
-            crash = dt.crash()
-            color = crash[y][x]
-            if color == 1:
-                LMD.set_pixel(x+1, y+4, 4)
             
 def character_move(board, player, dice_n, P1, P2, symbol):
     #symbol에 매직 심볼 개수 플레이어수만큼 리스트, 개수 세고 승리조건 만들기
@@ -186,6 +176,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                 if board[x][y]==1:
                     a=x
                     b=y
+                    
     else:
         for x in range(13):
             for y in range(13):
@@ -197,7 +188,7 @@ def character_move(board, player, dice_n, P1, P2, symbol):
     for i in range(dice_n):
         if crash == True:
             print("cracked wall~")
-            printcrash()
+            pd.printcrash()
             time.sleep(2)
             crash = False
             break
@@ -375,4 +366,10 @@ def character_move(board, player, dice_n, P1, P2, symbol):
                     board[a][b]=player_number
         if 5 in symbol:
             return symbol
+    if crash == True:
+        print("cracked wall~")
+        pd.printcrash()
+        time.sleep(2)
+        crash = False
+        break
     return symbol
