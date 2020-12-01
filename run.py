@@ -62,6 +62,7 @@ def run():
                game_board = bd.board_reset()
                game_board = bd.random_wall(wall_num, game_board)
                bd.random_score_start(game_board)
+               bd.board_print(game_board)
                
                while True:
                     dice_n = bd.random_dice(1)
