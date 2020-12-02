@@ -16,7 +16,7 @@
 ## 프로젝트 마무리
 * [결과 리포트 PPT]()
 10매분량 (미완성)
-* [유튜브 동작 영상](https://youtu.be/iZeQtXdPZCw)
+* [유튜브 동작 영상] https://youtu.be/iZeQtXdPZCw
 3분이내 (2020-12-02 완성)
 
 ## 구성된 코드 및 파일들
