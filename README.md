@@ -1,11 +1,33 @@
-# osscap2020
+# 오픈소스기초설계(나) 8팀
 
-2020 오픈소스기초설계 수업 프로젝트
+2020 오픈소스기초설계 수업 프로젝트 - osscap2020
 
-## 팀원
+## 팀 구성원
 
-* [정재윤](http://www.github.com/lastdefiance20)
-* [박정은](http://www.github.com/parkjungeun1013)
+- **팀장 [정재윤](http://www.github.com/lastdefiance20)**
+> 전체적인 게임 환경 구성을 맡음, LED_display.py, board.py, print_dot.py를 주로 다룸   
+보드게임 보드를 코드로 구성하고 터미널 및 led matrix로 보드 출력을 구현   
+플레이어 움직임에 의해서 발생하는 이벤트에 따른 반응을 구현   
+플레이어의 움직임을 2인용으로 개조하여 두명이 움직일 수 있도록 구현   
+랜덤으로 벽을 세우고 벽이 막히지 않았는지 조사하고 판을 구성하는 알고리즘을 구현   
+led matrix에 메인 메뉴 출력을 구현   
+
+- **팀원 [박정은](http://www.github.com/parkjungeun1013)**
+> 전체적인 인터페이스 및 유저 친화 UI / UX를 맡음, run.py, dot.py, print_dot.py를 주로 다룸   
+메인 메뉴와 score.txt를 이용한 리더보드 저장을 구현   
+키보드 입력에 따른 플레이어의 움직임과 랜덤 주사위를 구현   
+랜덤으로 매직 심볼 배치 및 먹었을때 이펙트를 구현   
+승리 조건에 따른 게임 종료를 구현   
+승리자 출력 및 리더보드 저장 구현   
+led matrix에 주사위 개수, 매직심볼 개수, 현재 플레이어 출력을 구현   
+
+
+## 참고한 오픈 소스
+교수님의 pytet_v0.2_led 및 [adafruit 공식 홈페이지](https://learn.adafruit.com/connecting-a-16x32-rgb-led-matrix-panel-to-a-raspberry-pi/experimental-python-code) 코드를 이용하여 led matrix 출력을 참고함
+
+[quoridor 보드게임](https://github.com/alainrinder/quoridor.py) 에서 보드게임을 구현하는 방법 및 이동 등 많은 점을 참고함
+
+[led matrix 레트로 게임](https://github.com/zcqsntr/retro_matrix) 에서 프로그램 구성을 참고함
 
 ## 프로젝트 개요
 * 마법의 미로라는 보드게임의 세팅을 자동화한 보드게임이다.
