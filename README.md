@@ -54,6 +54,7 @@ led matrix에 주사위 개수, 매직심볼 개수, 현재 플레이어 출력�
 준비물로는 라즈베리파이, 32 * 16 led matrix, 키보드, 모니터가 필요하다.
 
 또한 python3가 설치되어 있어야 한다.
+
 **if you did not install python3, try this or search how to install python3**
 
 ```
