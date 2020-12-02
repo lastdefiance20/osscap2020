@@ -55,7 +55,7 @@ led matrix에 주사위 개수, 매직심볼 개수, 현재 플레이어 출력�
 
 또한 python3가 설치되어 있어야 한다.
 
-**if you did not install python3, try this or search how to install python3**
+**f you did not install python3, try this or search how to install python3**
 
 ```
 $ sudo apt-get install python3
