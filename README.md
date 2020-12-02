@@ -68,6 +68,12 @@ Second, run the code using python and enjoy the game!
 $ python3 run.py
 ```
 
+if you did not install python3, try this or search how to install python3
+
+```
+$ sudo apt-get install python3
+```
+
 ## 게임을 즐기는 방법
 
 ### <선택창>
